@@ -21,22 +21,9 @@ router.post('/', async (req, res) => {
     fetch(url, { agent })
         .then(res => res.text())
         .then(text => {
-            console.log(text)
             var html = text;
 
-
-            // fetch(url, function (error, response, html) {
-            // fetch(url, { agent }).then((response) => {
-            // console.log(response);
-
-            // html = response.text();
-
-
-            //  if (!error) {
-
             const $ = cheerio.load(html);
-
-            console.log(html);
 
             $('#myTable tr').each(function (i) {
                 const itemText = $(this).find('td').eq(0).text().replace(/\t/g, '').split('\n');
@@ -99,6 +86,12 @@ router.post('/', async (req, res) => {
             let icmsCalculationBasis;
             let icmsValue;
             let protocol;
+            let address;
+
+            let targets = $("table.table > tbody > tr > td");
+            if(targets.length > 1){
+                address = $(targets[1]).html()
+            }
 
             $('#collapse4').each(function (i) {
                 socialName = $(this).find('td').eq(0).text();
@@ -122,7 +115,7 @@ router.post('/', async (req, res) => {
                 accesskey, totalItems, totalValue, paidValue, typePayment,
                 socialName, cnpj, stateRegistration, uf, operationDestination, finalCostumer,
                 buyerPresence, model, series, number, issuanceDate, totalValueService,
-                icmsCalculationBasis, icmsValue, protocol, url
+                icmsCalculationBasis, icmsValue, protocol, url, address
             };
             //  }
             nfce === null ? res.status(400).send({}) : res.status(201).send({ nfce });

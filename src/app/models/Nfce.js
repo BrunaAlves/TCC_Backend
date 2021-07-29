@@ -76,7 +76,10 @@ const nfceSchema = mongoose.Schema({
   },
   protocol: {
     type: String
-  }
+  },
+  address: {
+    type: String
+  },
 })
 
 nfceSchema.pre('save', async function (next) {
