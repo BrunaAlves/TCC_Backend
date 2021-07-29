@@ -16,6 +16,7 @@ function generateToken(params = {}) {
 }
 
 router.post('/register', async (req, res) => {
+    console.info(" asdasd")
     const { email } = req.body;
 
     try {
