@@ -51,7 +51,7 @@ router.post('/', async (req, res) => {
         console.log('NFCE: ', nfce)
 
         await Promise.all(items.map(async item => {
-            const nfceItem = new Item({ ...item, nfce: nfce._id });
+            const nfceItem = new Item({ ...item, nfce: nfce._id, assignedTo: req.userId});
             await nfceItem.save();
             nfce.items.push(nfceItem);
         }));

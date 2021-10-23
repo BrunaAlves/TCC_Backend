@@ -18,14 +18,18 @@ app.listen(port, () => {
     console.log(`Server running on port ${port}`)
 });
 
-/**
-  var express = require("express");
+/*
+var express = require("express");
 var mongoose = require("mongoose");
-var app = express();
+
 //environment variables
 require('dotenv').config();
+const dotenv = require("dotenv");
+dotenv.config();
 //database connection
+var app = express();
 const uri = process.env.ATLAS_URI;
+console.log(uri);
 mongoose.connect(uri,{useNewUrlParser:true,useCreateIndex:true});
 const connection = mongoose.connection;
 connection.once('open', () => {

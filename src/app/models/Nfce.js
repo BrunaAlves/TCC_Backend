@@ -18,13 +18,13 @@ const nfceSchema = mongoose.Schema({
     ref: 'Item'
   }],
   totalItems: {
-    type: String
+    type: Number
   },
   totalValue: {
-    type: String
+    type: Number
   },
   paidValue: {
-    type: String
+    type: Number
   },
   typePayment: {
     type: String
@@ -66,13 +66,13 @@ const nfceSchema = mongoose.Schema({
     type: String
   },
   totalValueService: {
-    type: String
+    type: Number
   },
   icmsCalculationBasis: {
-    type: String
+    type: Number
   },
   icmsValue: {
-    type: String
+    type: Number
   },
   protocol: {
     type: String

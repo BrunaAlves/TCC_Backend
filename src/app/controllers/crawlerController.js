@@ -4,7 +4,7 @@ var fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const Item = require('../models/Item');
 
-const https = require("https");
+const https = require("http");
 const agent = new https.Agent({
     rejectUnauthorized: false
 })
